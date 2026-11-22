@@ -218,6 +218,11 @@
     #pg-running .panel:has(#pie-zones) { grid-column: span 4; }
     #pg-running > .panel:has(#runs) { grid-column: span 8; }
   }
+  .stagecard { display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
+  .stagecard h2 { align-self: flex-start; }
+  .stagecard .chart.pie { width: 100%; }
+  .stagecard .legend { justify-content: center; }
+  .strainwide { justify-content: center; }
 </style>
 </head>
 <body>
@@ -259,7 +264,8 @@
     <section class="rings">
       <div class="panel ring tap" id="open-bb" role="button" tabindex="0"><div class="gauge" id="ring-bb"></div><div class="label">Body Battery</div><p class="sub">now · high <b id="bbhi">—</b></p></div>
       <div class="panel ring"><div class="gauge" id="ring-recovery"></div><div class="label">Recovery</div><p class="sub">7-day avg <b id="rec7">—</b>%</p></div>
-      <div class="panel ring"><div class="gauge" id="ring-strain"></div><div class="label">Strain</div><p class="sub">7-day avg <b id="str7">—</b></p></div>
+      <div class="panel stagecard"><h2>Sleep stages</h2><div class="chart pie" id="pie-stages"></div>
+        <div class="legend"><span><i class="sw" style="background:var(--deep)"></i>Deep</span><span><i class="sw" style="background:var(--light)"></i>Light</span><span><i class="sw" style="background:var(--rem)"></i>REM</span><span><i class="sw" style="background:var(--awake)"></i>Awake</span></div></div>
       <div class="panel ring tap" id="open-sleep" role="button" tabindex="0"><div class="gauge" id="ring-sleep"></div><div class="label">Sleep</div><p class="sub"><b id="slh">—</b> h · <b id="slw">—</b></p></div>
     </section>
 
@@ -268,8 +274,7 @@
 
 
     <section class="grid2">
-      <div class="panel"><h2>Sleep stages, last night</h2><div class="chart pie" id="pie-stages"></div>
-        <div class="legend"><span><i class="sw" style="background:var(--deep)"></i>Deep</span><span><i class="sw" style="background:var(--light)"></i>Light</span><span><i class="sw" style="background:var(--rem)"></i>REM</span><span><i class="sw" style="background:var(--awake)"></i>Awake</span></div></div>
+      <div class="panel ring strainwide"><div class="gauge" id="ring-strain"></div><div class="label">Strain</div><p class="sub">7-day avg <b id="str7">—</b></p></div>
       <div class="panel"><h2>Training time, last 28 days</h2><div class="chart pie" id="pie-mix"></div>
         <div class="legend"><span><i class="sw" style="background:var(--strain)"></i>Running</span><span><i class="sw" style="background:var(--rec-g)"></i>Gym</span><span><i class="sw" style="background:var(--muted)"></i>Other</span></div></div>
     </section>
